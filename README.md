@@ -90,15 +90,15 @@ Most remarkably, VibeThinker-1.5B surpasses the initial DeepSeek R1 model, which
 
 ## Eval
 
+### VibeThinker-3B
+
+This code does not support LLM-based judgment of whether the extracted model answers are equivalent to the ground truth. For evaluating complex benchmarks such as IMO-AnswerBench, we recommend using an LLM to determine mathematical equivalence.
+
 ### VibeThinker-1.5B
 
 If you wish to reproduce the results reported in the VibeThinker-1.5B technical report, the evaluation program and usage guide have been prepared and are available at the following links: [Math Eval](./eval/math/README.md) and [Code Eval](./eval/code/README.md).
 
 Sample responses from some benchmarks: [here](https://drive.google.com/drive/folders/1qom754QSjujDI98Wv8LIKTaTszPkAN6q?usp=drive_link).
-
-### VibeThinker-3B
-
-This code does not support LLM-based judgment of whether the extracted model answers are equivalent to the ground truth. For evaluating complex benchmarks such as IMO-AnswerBench, we recommend using an LLM to determine mathematical equivalence.
 
 ## Usage Guidelines
 
