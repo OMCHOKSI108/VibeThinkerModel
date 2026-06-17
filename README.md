@@ -96,6 +96,10 @@ If you wish to reproduce the results reported in the VibeThinker-1.5B technical 
 
 Sample responses from some benchmarks: [here](https://drive.google.com/drive/folders/1qom754QSjujDI98Wv8LIKTaTszPkAN6q?usp=drive_link).
 
+### VibeThinker-3B
+
+This code does not support LLM-based judgment of whether the extracted model answers are equivalent to the ground truth. For evaluating complex benchmarks such as IMO-AnswerBench, we recommend using an LLM to determine mathematical equivalence.
+
 ## Usage Guidelines
 
 ### VibeThinker-3B
