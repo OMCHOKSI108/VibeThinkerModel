@@ -1,32 +1,37 @@
 # Notebooks — VibeThinker
 
-This directory contains Jupyter notebooks for experimenting with VibeThinker models locally.
+This directory contains Jupyter notebooks for experimenting with VibeThinker models.
 
 ## Available Notebooks
 
-| Notebook | Description |
-|----------|-------------|
-| [`vibethinker-inference.ipynb`](vibethinker-inference.ipynb) | Starter notebook for loading VibeThinker-3B with transformers and running inference |
+| Notebook | Description | Platform |
+|----------|-------------|----------|
+| [`VibeThinker_3B_Inference_Colab.ipynb`](VibeThinker_3B_Inference_Colab.ipynb) | Colab-ready inference notebook — load model, run prompts, memory tips | Google Colab |
+| [`vibethinker-inference.ipynb`](vibethinker-inference.ipynb) | Local starter notebook for running inference with transformers | Local |
 
-## Planned Notebooks
+## Colab Notebook
 
-- **VibeThinker-3B Inference** — Load the model with `transformers` and run example prompts
-- **Prompt Examples** — Math, coding, and STEM reasoning prompts with expected output patterns
-- **Hardware Benchmarking** — Memory usage, inference speed, and quantization notes
-- **Hugging Face Hub Integration** — Loading from HF, using with `pipeline`, and sharing results
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/OMCHOKSI108/VibeThinkerModel/blob/main/notebooks/VibeThinker_3B_Inference_Colab.ipynb)
 
-## Usage
+The Colab notebook covers:
+- GPU runtime verification
+- Dependency installation
+- Optional Hugging Face login (via Colab secrets)
+- Model loading from `OMCHOKSI108/VibeThinker-3B`
+- Reusable inference function
+- Example prompts (math, code, STEM)
+- Memory optimization (4-bit/8-bit quantization)
+- Troubleshooting and responsible use
+
+## Prerequisites
 
 All notebooks assume you have:
-1. Installed dependencies (`transformers>=4.54.0`, `torch`, etc.)
-2. Access to a CUDA-capable GPU with sufficient VRAM
-3. Downloaded or configured access to the model weights
+1. Python 3.10+
+2. `transformers>=4.54.0` installed
+3. A CUDA-capable GPU with sufficient VRAM (8 GB+ for bfloat16)
+4. Model weights downloaded or accessible via Hugging Face
 
-See [`docs/SETUP.md`](../docs/SETUP.md) for installation instructions and [`docs/INFERENCE.md`](../docs/INFERENCE.md) for inference parameters.
-
-## Safe Local Testing
-
-Notebooks use only publicly available model weights from WeiboAI or the OMCHOKSI108 mirror. No API keys, tokens, or secrets are required. All inference runs locally on your hardware.
+See [`docs/SETUP.md`](../docs/SETUP.md) for local setup and [`docs/INFERENCE.md`](../docs/INFERENCE.md) for inference parameters.
 
 ## Attribution
 
