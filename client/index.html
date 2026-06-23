@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VibeThinker Local Chat</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="header-left">
+        <h1>VibeThinker Local Chat</h1>
+        <span id="model-badge" class="badge badge-loading">checking model...</span>
+      </div>
+      <div class="header-right">
+        <button id="settings-toggle" class="icon-btn" title="Generation settings">Settings</button>
+      </div>
+    </header>
+
+    <aside id="settings-drawer" class="settings-drawer hidden">
+      <h2>Generation Settings</h2>
+      <label>
+        Max new tokens
+        <input id="setting-max-tokens" type="number" min="1" max="4096" value="2048" />
+      </label>
+      <label>
+        Temperature
+        <input id="setting-temperature" type="number" min="0" max="2" step="0.05" value="0.6" />
+      </label>
+      <label>
+        Top-p
+        <input id="setting-top-p" type="number" min="0" max="1" step="0.05" value="0.95" />
+      </label>
+      <label>
+        System prompt
+        <textarea id="setting-system-prompt" rows="4">You are VibeThinker Local, a helpful coding and reasoning assistant. Give accurate, practical answers. For code, provide clean working examples. Do not invent facts. If unsure, say what is uncertain.</textarea>
+      </label>
+      <button id="settings-close" class="secondary-btn">Close</button>
+    </aside>
+
+    <main class="chat-area" id="chat-area">
+      <div class="empty-state" id="empty-state">
+        Ask VibeThinker a coding or reasoning question to get started.
+      </div>
+    </main>
+
+    <footer class="composer">
+      <textarea
+        id="message-input"
+        placeholder="Message VibeThinker Local... (Enter to send, Shift+Enter for newline)"
+        rows="1"
+      ></textarea>
+      <div class="composer-actions">
+        <button id="clear-btn" class="secondary-btn" title="Clear conversation">Clear</button>
+        <button id="stop-btn" class="secondary-btn hidden" title="Stop generating">Stop</button>
+        <button id="send-btn" class="primary-btn" title="Send message">Send</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
