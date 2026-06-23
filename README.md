@@ -89,8 +89,9 @@ VibeThinkerModel/
 ├── README_old.md           # Original 1.5B-era README (preserved)
 ├── LICENSE                 # MIT License (original)
 ├── notebooks/
-│   ├── README.md            # Notebook overview and usage guide
-│   └── vibethinker-inference.ipynb  # Starter inference notebook
+│   ├── README.md                              # Notebook overview and usage guide
+│   ├── VibeThinker_3B_Inference_Colab.ipynb   # Colab-ready inference notebook
+│   └── vibethinker-inference.ipynb            # Local starter inference notebook
 ├── docs/
 │   ├── PROJECT_OVERVIEW.md  # Detailed project description
 │   ├── SETUP.md             # Environment setup and installation
@@ -138,13 +139,16 @@ See [INFERENCE.md](docs/INFERENCE.md) for full examples.
 
 ## Notebooks
 
-Starter notebooks for experimenting with VibeThinker models locally are available in the [`notebooks/`](notebooks/) directory.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/OMCHOKSI108/VibeThinkerModel/blob/main/notebooks/VibeThinker_3B_Inference_Colab.ipynb)
 
-| Notebook | Description |
-|----------|-------------|
-| [`vibethinker-inference.ipynb`](notebooks/vibethinker-inference.ipynb) | Load VibeThinker-3B with transformers and run inference |
+Experiment with VibeThinker models using Jupyter notebooks in the [`notebooks/`](notebooks/) directory.
 
-See [`notebooks/README.md`](notebooks/README.md) for details and planned notebooks.
+| Notebook | Description | Platform |
+|----------|-------------|----------|
+| [`VibeThinker_3B_Inference_Colab.ipynb`](notebooks/VibeThinker_3B_Inference_Colab.ipynb) | Colab-ready inference with model loading, prompts, and memory tips | Colab |
+| [`vibethinker-inference.ipynb`](notebooks/vibethinker-inference.ipynb) | Local inference with transformers | Local |
+
+See [`notebooks/README.md`](notebooks/README.md) for details.
 
 ## Hugging Face Model Mirror
 
