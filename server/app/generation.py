@@ -170,6 +170,7 @@ def stream_chat(
     pending_buffer = ""
     started_streaming = False
     sent_streaming_status = False
+    last_heartbeat = time.time()
 
     for raw_delta in streamer:
         if stop_signal.is_set():
@@ -177,6 +178,11 @@ def stream_chat(
 
         visible_delta = think_stripper.feed(raw_delta)
         if not visible_delta:
+            now = time.time()
+            if now - last_heartbeat >= 10:
+                elapsed = int(now - start_time)
+                yield "status", {"stage": "thinking", "message": f"Still thinking... ({elapsed}s)"}
+                last_heartbeat = now
             continue
 
         pending_buffer += visible_delta

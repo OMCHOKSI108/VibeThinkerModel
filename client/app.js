@@ -130,8 +130,13 @@ function createThinkingBar() {
   return { wrapper, label: bar.querySelector(".thinking-label") };
 }
 
+let _scrollRaf = null;
 function scrollToBottom() {
-  chatArea.scrollTop = chatArea.scrollHeight;
+  if (_scrollRaf) return;
+  _scrollRaf = requestAnimationFrame(() => {
+    chatArea.scrollTop = chatArea.scrollHeight;
+    _scrollRaf = null;
+  });
 }
 
 // --- SSE stream parsing --------------------------------------------------------
@@ -193,6 +198,7 @@ async function sendMessage() {
   activeAbortController = new AbortController();
   let assistantBubble = null;
   let assistantText = "";
+  let renderTimer = null;
 
   try {
     const response = await fetch("/api/chat/stream", {
@@ -223,18 +229,26 @@ async function sendMessage() {
           assistantBubble = createMessageEl("assistant").bubbleEl;
         }
         assistantText += data.text;
-        assistantBubble.innerHTML = renderMarkdown(assistantText);
-        attachCopyButtons(assistantBubble);
-        scrollToBottom();
+        clearTimeout(renderTimer);
+        renderTimer = setTimeout(() => {
+          assistantBubble.innerHTML = renderMarkdown(assistantText);
+          attachCopyButtons(assistantBubble);
+          scrollToBottom();
+        }, 80);
       } else if (event === "error") {
+        clearTimeout(renderTimer);
         thinking.wrapper.remove();
         const bubble = createMessageEl("assistant").bubbleEl;
         bubble.classList.add("error-bubble");
         bubble.textContent = data.message || "Generation failed.";
       } else if (event === "done") {
+        clearTimeout(renderTimer);
         thinking.wrapper.remove();
-        if (!assistantBubble) {
-          // Model produced no visible output (e.g. only a think block).
+        if (assistantText && assistantBubble) {
+          assistantBubble.innerHTML = renderMarkdown(assistantText);
+          attachCopyButtons(assistantBubble);
+          scrollToBottom();
+        } else if (!assistantBubble) {
           createMessageEl("assistant").bubbleEl.textContent = "(no response)";
         }
       }
