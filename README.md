@@ -28,7 +28,37 @@ VibeThinker is a family of dense reasoning models developed by WeiboAI to explor
 
 VibeThinker-3B is post-trained with an upgraded Spectrum-to-Signal pipeline combining curriculum-based supervised fine-tuning, multi-domain reinforcement learning, offline self-distillation, and instruction-oriented reinforcement learning. It is designed for tasks with reliable verification signals including mathematical reasoning, competitive programming, STEM reasoning, and instruction-following with explicit constraints.
 
+<p align="center"><img src="./figures/3b/Abstract.png" width="80%"/></p>
+
 _VibeThinker-1.5B uses the "Spectrum-to-Signal Principle (SSP)" methodology with Two-Stage Diversity-Exploring Distillation and MaxEnt-Guided Policy Optimization (MGPO)._
+
+<p align="center"><img src="./figures/1.5b/Abstract.png" width="80%"/></p>
+
+## Benchmark Highlights
+
+### VibeThinker-3B
+
+<p align="center"><img src="./figures/3b/Acc_and_Scale.png" width="80%"/></p>
+
+<p align="center"><img src="./figures/3b/VibeThiinker-3B.png" width="80%"/></p>
+
+<p align="center"><img src="./figures/3b/VibeThinker-3B+CLR.png" width="80%"/></p>
+
+<p align="center"><img src="./figures/3b/LeetCode.png" width="80%"/></p>
+
+### VibeThinker-1.5B
+
+<p align="center"><img src="./figures/1.5b/am25_1.5B.png" width="80%"/></p>
+
+<p align="center"><img src="./figures/1.5b/Performence1.png" width="80%"/></p>
+
+<p align="center"><img src="./figures/1.5b/Cost.png" width="80%"/></p>
+
+### Training Architecture
+
+<p align="center"><img src="./figures/3b/Architecture.png" width="80%"/></p>
+
+<p align="center"><img src="./figures/1.5b/technicalArchitecture1.png" width="80%"/></p>
 
 ## Repository Structure
 
